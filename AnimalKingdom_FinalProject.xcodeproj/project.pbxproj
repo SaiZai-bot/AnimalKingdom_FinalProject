@@ -103,7 +103,6 @@
 		38E02CEA2EC7132600E98B15 = {
 			isa = PBXGroup;
 			children = (
-				388B01712EC9CFFE00429EFE /* AddForestTableViewController.swift */,
 				38E02CF52EC7132600E98B15 /* AnimalKingdom_FinalProject */,
 				38E02D0C2EC7132B00E98B15 /* AnimalKingdom_FinalProjectTests */,
 				38E02D162EC7132B00E98B15 /* AnimalKingdom_FinalProjectUITests */,
@@ -124,6 +123,7 @@
 		38E02CF52EC7132600E98B15 /* AnimalKingdom_FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				388B01712EC9CFFE00429EFE /* AddForestTableViewController.swift */,
 				38E02CF62EC7132600E98B15 /* AppDelegate.swift */,
 				38E02CF82EC7132600E98B15 /* SceneDelegate.swift */,
 				38E02CFA2EC7132600E98B15 /* ViewController.swift */,

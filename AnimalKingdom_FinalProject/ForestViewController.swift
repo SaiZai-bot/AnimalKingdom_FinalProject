@@ -54,12 +54,10 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if segue.identifier == "AddAnimalSegue" {
             let addVC = segue.destination as! AddForestTableViewController
             addVC.delegate = self
-        }
-        else if segue.identifier == "ShowForestDescSegue" {
+        } else if segue.identifier == "ShowForestDescSegue" {
             let descVC = segue.destination as! ForestDescViewController
-            if let indexPath = self.TableViewItem.indexPathForSelectedRow {
-                let animal = Forest[indexPath.row]
-                descVC.sendItem = animal
+            if let indexPath = TableViewItem.indexPathForSelectedRow {
+                descVC.sendItem = Forest[indexPath.row]
             }
         }
     }

@@ -429,7 +429,7 @@
         <!--Add for Forest-->
         <scene sceneID="Ysb-b1-aHX">
             <objects>
-                <tableViewController id="cIq-jM-0W0" sceneMemberID="viewController">
+                <tableViewController id="cIq-jM-0W0" customClass="AddForestTableViewController" customModule="AnimalKingdom_FinalProject" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="NFa-Qf-xz6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -523,12 +523,18 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled" title="SAVE"/>
+                                                    <connections>
+                                                        <action selector="btnAdd:" destination="cIq-jM-0W0" eventType="touchUpInside" id="5Oh-p8-EGZ"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7W-7F-KzB">
                                                     <rect key="frame" x="261" y="23" width="77" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled" title="CLEAR"/>
+                                                    <connections>
+                                                        <action selector="btnClear:" destination="cIq-jM-0W0" eventType="touchUpInside" id="K7c-Rk-a11"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -543,10 +549,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add for Forest" id="5u0-sQ-hLj"/>
+                    <connections>
+                        <outlet property="desctxtview" destination="zhL-Nr-YSq" id="i5t-En-vaO"/>
+                        <outlet property="nametxtfield" destination="Lqd-fg-33w" id="pf5-wv-Y61"/>
+                        <outlet property="typetxtfield" destination="8jJ-6O-LYh" id="1fk-rf-knD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9y-tO-jP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878.6259541984732" y="-1927.4647887323945"/>
+            <point key="canvasLocation" x="3578" y="-1751"/>
         </scene>
         <!--Add to Forest-->
         <scene sceneID="QJC-Yh-e67">
@@ -724,7 +735,7 @@
                                     <color key="baseBackgroundColor" red="0.84526211019999997" green="0.70247036220000003" blue="0.483653903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="cIq-jM-0W0" kind="show" id="vMp-X0-BXD"/>
+                                    <segue destination="cIq-jM-0W0" kind="show" identifier="AddAnimalSegue" id="pzq-ic-QtR"/>
                                 </connections>
                             </button>
                         </subviews>
