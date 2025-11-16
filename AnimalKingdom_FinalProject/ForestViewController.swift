@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddForestDelegate {
     
     @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var TableViewItem: UITableView!
@@ -34,42 +34,33 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    @IBAction func btnAdd(_ sender: Any) {
-        let name = txtField.text ?? ""
-        if name.isEmpty { return }
-        
-        let newAnimal = Animals(
-            type: "Forest",
-            name: name,
-            desc: "Add Later",
-            imageFile: "Add Later")
-        
-        Forest.append(newAnimal)
+    func didAddAnimal(_ animal: Animals) {
+        Forest.append(animal)
         TableViewItem.reloadData()
-        txtField.text = ""
-        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let vc = segue.destination as! ForestDescViewController
-        if let indexPath = self.TableViewItem.indexPathForSelectedRow{
-            let animal = Forest[indexPath.row]
-            vc.sendItem = animal
+        if segue.identifier == "AddAnimalSegue" {
+            let addVC = segue.destination as! AddForestTableViewController
+            addVC.delegate = self
         }
-        
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        else if segue.identifier == "ShowForestDescSegue" {
+            let descVC = segue.destination as! ForestDescViewController
+            if let indexPath = self.TableViewItem.indexPathForSelectedRow {
+                let animal = Forest[indexPath.row]
+                descVC.sendItem = animal
+            }
+        }
     }
-
 }

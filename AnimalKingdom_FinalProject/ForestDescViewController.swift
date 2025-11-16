@@ -22,7 +22,11 @@ class ForestDescViewController: UIViewController {
             animalName.text = sendItem?.name
             animalDesc.text = sendItem?.desc
             animalType.text = sendItem?.type
-            animalImage.image = UIImage(named: (sendItem?.imageFile)!)
+            if let imageName = sendItem?.imageFile, let image = UIImage(named: imageName) {
+                animalImage.image = image
+            } else {
+                animalImage.image = UIImage(named: "placeholder") // fallback image
+            }
 
         // Do any additional setup after loading the view.
         }
