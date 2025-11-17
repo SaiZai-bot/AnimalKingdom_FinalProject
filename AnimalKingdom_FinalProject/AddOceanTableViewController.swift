@@ -43,7 +43,7 @@ class AddOceanTableViewController: UITableViewController {
             type: type,
             name: name,
             desc: descri,
-            imageFile: "add later")
+            imageFile: "AppIcon")
         
         delegate?.didAddAnimal(newAnimal)
         navigationController?.popViewController(animated: true)
