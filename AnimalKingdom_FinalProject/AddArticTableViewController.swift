@@ -41,7 +41,7 @@ class AddArticTableViewController: UITableViewController {
             type: type,
             name: name,
             desc: descri,
-            imageFile: "AppIcon")
+            imageFile: "app_logo2")
         
         delegate?.didAddAnimal(newAnimal)
         navigationController?.popViewController(animated: true)
