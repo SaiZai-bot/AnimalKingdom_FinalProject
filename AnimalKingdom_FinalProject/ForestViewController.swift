@@ -13,11 +13,7 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var TableViewItem: UITableView!
     
     
-    var Forest:[Animals] = [
-        Animals(type: "Forest1", name: "Bear", desc: "Add later", imageFile: "bear"),
-        Animals(type: "Forest2", name: "Fox", desc: "Add later", imageFile: "fox"),
-        Animals(type: "Forest3", name: "Squirrel", desc: "Add later", imageFile: "squirrel")
-    ]
+    var Forest:[Animals] = []
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +30,13 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Forest.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     func didAddAnimal(_ animal: Animals) {
         Forest.append(animal)
         TableViewItem.reloadData()
@@ -42,6 +45,14 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Forest.isEmpty {
+                Forest = [
+                    Animals(type: "Forest1", name: "Bear", desc: "Add later", imageFile: "bear"),
+                    Animals(type: "Forest2", name: "Fox", desc: "Add later", imageFile: "fox"),
+                    Animals(type: "Forest3", name: "Squirrel", desc: "Add later", imageFile: "squirrel")
+                ]
+            }
         
         // Do any additional setup after loading the view.
     }
@@ -58,7 +69,16 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let descVC = segue.destination as! ForestDescViewController
             if let indexPath = TableViewItem.indexPathForSelectedRow {
                 descVC.sendItem = Forest[indexPath.row]
+                descVC.selectedIndex = indexPath.row
+                descVC.updateDelegate = self
             }
         }
+    }
+}
+
+extension ForestViewController: UpdateForestDelegate {
+    func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
+        Forest[index] = updateAnimal
+        TableViewItem.reloadData()
     }
 }

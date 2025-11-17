@@ -1,26 +1,32 @@
 //
-//  AddAnimalTableViewController.swift
+//  UpdateForestTableViewController.swift
 //  AnimalKingdom_FinalProject
 //
-//  Created by Zaimone Miranda on 11/16/25.
+//  Created by Zaimone Miranda on 11/17/25.
 //
 
 import UIKit
 
-protocol AddAnimalDelegate: AnyObject {
-    func didAddAnimal(_ animal: Animals)
+protocol UpdateForestDelegate: AnyObject {
+    func didUpdateAnimal(_ animal: Animals, at index: Int)
 }
 
-class AddAnimalTableViewController: UITableViewController {
+class UpdateForestTableViewController: UITableViewController {
 
-    weak var delegate: AddAnimalDelegate?
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtDesc: UITextView!
+    @IBOutlet weak var txtType: UITextField!
     
-    @IBOutlet weak var nametxtfield: UITextField!
-    @IBOutlet weak var desctxtview: UITextView!
-    @IBOutlet weak var typetxtfield: UITextField!
+    weak var delegate: UpdateForestDelegate?
+    var animalToEdit: Animals?
+    var indexToEdit: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        txtName.text = animalToEdit?.name
+        txtDesc.text = animalToEdit?.desc
+        txtType.text = animalToEdit?.type
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,42 +35,37 @@ class AddAnimalTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    
-    
-    @IBAction func btnAdd(_ sender: Any) {
-        let name = nametxtfield.text ?? ""
-        let descri = desctxtview.text ?? ""
-        let type = typetxtfield.text ?? ""
-        
-        if name.isEmpty || descri.isEmpty || type.isEmpty { return }
-       
-        
-        let newAnimal = Animals(
-            type: type,
-            name: name,
-            desc: descri,
-            imageFile: "add later")
-        
-        delegate?.didAddAnimal(newAnimal)
-        
-        self.navigationController?.popViewController(animated: true)
-        
-        
-    }
-    
-    
-    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    
+    @IBAction func btnSave(_ sender: Any) {
+        guard let index = indexToEdit else {return}
+        
+        let updated = Animals (
+            type: txtType.text ?? "",
+            name: txtName.text ?? "",
+            desc: txtDesc.text ?? "",
+            imageFile: animalToEdit?.imageFile ?? "bear")
+        
+        delegate?.didUpdateAnimal(updated, at: index)
+        navigationController?.popViewController(animated: true)
+        
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    @IBAction func btnClear(_ sender: Any) {
+        txtName.text = ""
+        txtDesc.text = ""
+        txtType.text = ""
     }
+    //    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
