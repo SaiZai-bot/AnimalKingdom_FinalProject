@@ -7,20 +7,22 @@
 
 import UIKit
 
-class articViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class articViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddArticDelegate {
 
 
     @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var tableViewItem: UITableView!
     
-    var Artic:[Animals] = [
-        Animals(type: "Artic1", name: "Artic Bear", desc: "Add later", imageFile: "articbear"),
-        Animals(type: "Artic2", name: "Artic Fox", desc: "Add later", imageFile: "articfox"),
-        Animals(type: "Artic3", name: "Walrus", desc: "Add later", imageFile: "walrus")
-    ]
+    var Artic:[Animals] {
+        get { AnimalData.shared.arcticAnimals }
+        set { AnimalData.shared.arcticAnimals = newValue }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableViewItem.delegate = self
+        tableViewItem.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -38,20 +40,18 @@ class articViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Artic.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 
-    @IBAction func btnAdd(_ sender: Any) {
-        let name = txtField.text ?? ""
-        if name.isEmpty { return }
-        
-        let newAnimal = Animals(
-            type: "Forest",
-            name: name,
-            desc: "Add Later",
-            imageFile: "Add Later")
-        
-        Artic.append(newAnimal)
+
+    func didAddAnimal(_ animal: Animals) {
+        Artic.append(animal)
         tableViewItem.reloadData()
-        txtField.text = ""
     }
 
     // MARK: - Navigation
@@ -60,14 +60,24 @@ class articViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        let vc = segue.destination as! articDescViewController
-        if let indexPath = self.tableViewItem.indexPathForSelectedRow{
-            let animal = Artic[indexPath.row]
-            vc.sendItem = animal
+        if segue.identifier == "AddAnimalSegue" {
+            let addVC = segue.destination as! AddArticTableViewController
+            addVC.delegate = self
+        } else if segue.identifier == "ShowForestDescSegue" {
+            let descVC = segue.destination as! articDescViewController
+            if let indexPath = tableViewItem.indexPathForSelectedRow {
+                descVC.sendItem = Artic[indexPath.row]
+                descVC.selectedIndex = indexPath.row
+                descVC.updateDelegate = self
+            }
         }
-        
     }
-    
-
 }
+
+extension articViewController: UpdateArticDelegate {
+    func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
+        Artic[index] = updateAnimal
+        tableViewItem.reloadData()
+    }
+}
+

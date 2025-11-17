@@ -1,60 +1,57 @@
 //
-//  AddAnimalTableViewController.swift
+//  UpdateArticTableViewController.swift
 //  AnimalKingdom_FinalProject
 //
-//  Created by Zaimone Miranda on 11/16/25.
+//  Created by Zaimone Miranda on 11/17/25.
 //
 
 import UIKit
 
-protocol AddForestDelegate: AnyObject {
-    func didAddAnimal(_ animal: Animals)
+protocol UpdateArticDelegate: AnyObject {
+    func didUpdateAnimal(_ animal: Animals, at index: Int)
 }
 
-class AddForestTableViewController: UITableViewController {
-
-    weak var delegate: AddForestDelegate?
+class UpdateArticTableViewController: UITableViewController {
     
-    @IBOutlet weak var nametxtfield: UITextField!
-    @IBOutlet weak var desctxtview: UITextView!
-    @IBOutlet weak var typetxtfield: UITextField!
+    
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtDesc: UITextView!
+    @IBOutlet weak var txtType: UITextField!
+    
+    weak var delegate: UpdateArticDelegate?
+    var animalToEdit: Animals?
+    var indexToEdit: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtName.text = animalToEdit?.name
+        txtDesc.text = animalToEdit?.desc
+        txtType.text = animalToEdit?.type
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
     
-    
-    @IBAction func btnAdd(_ sender: Any) {
-        let name = nametxtfield.text ?? ""
-        let descri = desctxtview.text ?? ""
-        let type = typetxtfield.text ?? ""
+    @IBAction func btnSave(_ sender: Any) {
+        guard let index = indexToEdit else {return}
         
-        if name.isEmpty || descri.isEmpty || type.isEmpty { return }
-       
+        let updated = Animals (
+            type: txtType.text ?? "",
+            name: txtName.text ?? "",
+            desc: txtDesc.text ?? "",
+            imageFile: animalToEdit?.imageFile ?? "bear")
         
-        let newAnimal = Animals(
-            type: type,
-            name: name,
-            desc: descri,
-            imageFile: "add later")
-        
-        delegate?.didAddAnimal(newAnimal)
+        delegate?.didUpdateAnimal(updated, at: index)
         navigationController?.popViewController(animated: true)
-        
-        
     }
     
-    
     @IBAction func btnClear(_ sender: Any) {
-        nametxtfield.text = ""
-        desctxtview.text = ""
-        typetxtfield.text = ""
+        txtName.text = ""
+        txtDesc.text = ""
+        txtType.text = ""
     }
     
     // MARK: - Table view data source
@@ -95,7 +92,7 @@ class AddForestTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
     */
 

@@ -1,19 +1,20 @@
 //
-//  AddAnimalTableViewController.swift
+//  AddArticTableViewController.swift
 //  AnimalKingdom_FinalProject
 //
-//  Created by Zaimone Miranda on 11/16/25.
+//  Created by Zaimone Miranda on 11/17/25.
 //
 
 import UIKit
 
-protocol AddForestDelegate: AnyObject {
+protocol AddArticDelegate: AnyObject {
     func didAddAnimal(_ animal: Animals)
 }
 
-class AddForestTableViewController: UITableViewController {
+class AddArticTableViewController: UITableViewController {
 
-    weak var delegate: AddForestDelegate?
+    weak var delegate: AddArticDelegate?
+    
     
     @IBOutlet weak var nametxtfield: UITextField!
     @IBOutlet weak var desctxtview: UITextView!
@@ -21,14 +22,13 @@ class AddForestTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    
     
     @IBAction func btnAdd(_ sender: Any) {
         let name = nametxtfield.text ?? ""
@@ -36,7 +36,6 @@ class AddForestTableViewController: UITableViewController {
         let type = typetxtfield.text ?? ""
         
         if name.isEmpty || descri.isEmpty || type.isEmpty { return }
-       
         
         let newAnimal = Animals(
             type: type,
@@ -47,9 +46,7 @@ class AddForestTableViewController: UITableViewController {
         delegate?.didAddAnimal(newAnimal)
         navigationController?.popViewController(animated: true)
         
-        
     }
-    
     
     @IBAction func btnClear(_ sender: Any) {
         nametxtfield.text = ""
@@ -95,7 +92,7 @@ class AddForestTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
     */
 

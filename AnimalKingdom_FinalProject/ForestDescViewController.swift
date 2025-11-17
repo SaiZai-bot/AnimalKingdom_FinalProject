@@ -22,14 +22,7 @@ class ForestDescViewController: UIViewController, UpdateForestDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animalName.text = sendItem?.name
-        animalDesc.text = sendItem?.desc
-        animalType.text = sendItem?.type
-        if let imageName = sendItem?.imageFile, let image = UIImage(named: imageName) {
-            animalImage.image = image
-        } else {
-            animalImage.image = UIImage(named: "placeholder") // fallback image
-        }
+        updateUI()
 
         // Do any additional setup after loading the view.
     }

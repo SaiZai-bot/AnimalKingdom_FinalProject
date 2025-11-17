@@ -19,6 +19,9 @@
 		388B016C2EC9A3B500429EFE /* articDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B016B2EC9A3B500429EFE /* articDescViewController.swift */; };
 		388B01722EC9CFFE00429EFE /* AddForestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B01712EC9CFFE00429EFE /* AddForestTableViewController.swift */; };
 		388D81BE2ECAA7960046A821 /* UpdateForestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D81BD2ECAA7960046A821 /* UpdateForestTableViewController.swift */; };
+		388D81C02ECABD3D0046A821 /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D81BF2ECABD3D0046A821 /* AnimalData.swift */; };
+		388D81C22ECAC2AF0046A821 /* AddArticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D81C12ECAC2AF0046A821 /* AddArticTableViewController.swift */; };
+		388D81C42ECAC8740046A821 /* UpdateArticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D81C32ECAC8740046A821 /* UpdateArticTableViewController.swift */; };
 		38E02CF72EC7132600E98B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E02CF62EC7132600E98B15 /* AppDelegate.swift */; };
 		38E02CF92EC7132600E98B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E02CF82EC7132600E98B15 /* SceneDelegate.swift */; };
 		38E02CFB2EC7132600E98B15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E02CFA2EC7132600E98B15 /* ViewController.swift */; };
@@ -60,6 +63,9 @@
 		388B016B2EC9A3B500429EFE /* articDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articDescViewController.swift; sourceTree = "<group>"; };
 		388B01712EC9CFFE00429EFE /* AddForestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddForestTableViewController.swift; sourceTree = "<group>"; };
 		388D81BD2ECAA7960046A821 /* UpdateForestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateForestTableViewController.swift; sourceTree = "<group>"; };
+		388D81BF2ECABD3D0046A821 /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
+		388D81C12ECAC2AF0046A821 /* AddArticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticTableViewController.swift; sourceTree = "<group>"; };
+		388D81C32ECAC8740046A821 /* UpdateArticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateArticTableViewController.swift; sourceTree = "<group>"; };
 		38E02CF32EC7132600E98B15 /* AnimalKingdom_FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalKingdom_FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E02CF62EC7132600E98B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38E02CF82EC7132600E98B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,9 +130,12 @@
 			isa = PBXGroup;
 			children = (
 				388B015B2EC9774700429EFE /* Animals.swift */,
+				388D81BF2ECABD3D0046A821 /* AnimalData.swift */,
 				38E02CF62EC7132600E98B15 /* AppDelegate.swift */,
 				388B01692EC9A24D00429EFE /* articViewController.swift */,
 				388B016B2EC9A3B500429EFE /* articDescViewController.swift */,
+				388D81C12ECAC2AF0046A821 /* AddArticTableViewController.swift */,
+				388D81C32ECAC8740046A821 /* UpdateArticTableViewController.swift */,
 				388B01632EC993EB00429EFE /* DesertDescViewController.swift */,
 				388B01652EC99AE300429EFE /* OceanViewController.swift */,
 				388B01672EC99CF200429EFE /* OceanDescViewController.swift */,
@@ -300,10 +309,13 @@
 				388B01622EC9913400429EFE /* desertViewController.swift in Sources */,
 				38E02CF92EC7132600E98B15 /* SceneDelegate.swift in Sources */,
 				388B01722EC9CFFE00429EFE /* AddForestTableViewController.swift in Sources */,
+				388D81C22ECAC2AF0046A821 /* AddArticTableViewController.swift in Sources */,
 				388B015A2EC965C900429EFE /* TableViewController.swift in Sources */,
+				388D81C02ECABD3D0046A821 /* AnimalData.swift in Sources */,
 				388B016A2EC9A24D00429EFE /* articViewController.swift in Sources */,
 				388B01602EC9804900429EFE /* ForestDescViewController.swift in Sources */,
 				388B01662EC99AE300429EFE /* OceanViewController.swift in Sources */,
+				388D81C42ECAC8740046A821 /* UpdateArticTableViewController.swift in Sources */,
 				388B01642EC993EB00429EFE /* DesertDescViewController.swift in Sources */,
 				388B016C2EC9A3B500429EFE /* articDescViewController.swift in Sources */,
 				388B01582EC9640500429EFE /* ForestViewController.swift in Sources */,

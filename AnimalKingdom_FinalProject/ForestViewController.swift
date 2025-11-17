@@ -13,7 +13,10 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var TableViewItem: UITableView!
     
     
-    var Forest:[Animals] = []
+    var Forest:[Animals] {
+        get { AnimalData.shared.forestAnimals }
+        set { AnimalData.shared.forestAnimals = newValue }
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,14 +49,8 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Forest.isEmpty {
-                Forest = [
-                    Animals(type: "Forest1", name: "Bear", desc: "Add later", imageFile: "bear"),
-                    Animals(type: "Forest2", name: "Fox", desc: "Add later", imageFile: "fox"),
-                    Animals(type: "Forest3", name: "Squirrel", desc: "Add later", imageFile: "squirrel")
-                ]
-            }
-        
+        TableViewItem.delegate = self
+        TableViewItem.dataSource = self
         // Do any additional setup after loading the view.
     }
     
