@@ -7,38 +7,25 @@
 
 import UIKit
 
-class desertViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class desertViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddDesertDelegate {
     
     @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var tableViewItem: UITableView!
     
-    var Desert:[Animals] = [
-        Animals(type: "Desert1", name: "Camel", desc: "Add later", imageFile: "camel"),
-        Animals(type: "Desert2", name: "Rattle Snake", desc: "Add later", imageFile: "rattlesnake"),
-        Animals(type: "Desertt3", name: "Fennec Fox", desc: "Add later", imageFile: "fennecfox")
-    ]
-    
+    var Desert:[Animals] {
+        get { AnimalData.shared.desertAnimals }
+        set { AnimalData.shared.desertAnimals = newValue }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableViewItem.delegate = self
+        tableViewItem.dataSource = self
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func btnAdd(_ sender: Any) {
-        let name = txtField.text ?? ""
-        if name.isEmpty { return }
-        
-        let newAnimal = Animals(
-            type: "Forest",
-            name: name,
-            desc: "Add Later",
-            imageFile: "Add Later")
-        
-        Desert.append(newAnimal)
-        tableViewItem.reloadData()
-        txtField.text = ""
-    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Desert.count
@@ -54,6 +41,17 @@ class desertViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Desert.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func didAddAnimal(_ animal: Animals) {
+        Desert.append(animal)
+        tableViewItem.reloadData()
+    }
 
     // MARK: - Navigation
 
@@ -61,12 +59,25 @@ class desertViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let vc = segue.destination as! DesertDescViewController
-        if let indexPath = self.tableViewItem.indexPathForSelectedRow{
-            let animal = Desert[indexPath.row]
-            vc.sendItem = animal
+        if segue.identifier == "AddAnimalSegue" {
+            let addVC = segue.destination as! AddDesertTableViewController
+            addVC.delegate = self
+        } else if segue.identifier == "ShowDesertDescSegue" {
+            let descVC = segue.destination as! DesertDescViewController
+            if let indexPath = tableViewItem.indexPathForSelectedRow {
+                descVC.sendItem = Desert[indexPath.row]
+                descVC.selectedIndex = indexPath.row
+                descVC.updateDelegate = self
+            }
         }
     }
 
 
+}
+
+extension desertViewController: UpdateDesertDelegate {
+    func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
+        Desert[index] = updateAnimal
+        tableViewItem.reloadData()
+    }
 }

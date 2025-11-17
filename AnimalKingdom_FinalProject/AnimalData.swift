@@ -17,9 +17,17 @@ class AnimalData {
         Animals(type: "Forest3", name: "Squirrel", desc: "Add later", imageFile: "squirrel")
     ]
     
-    var oceanAnimals: [Animals] = []
+    var oceanAnimals: [Animals] = [
+        Animals(type: "Ocean1", name: "Octopus", desc: "Add later", imageFile: "octopus"),
+        Animals(type: "Ocean2", name: "Turtle", desc: "Add later", imageFile: "turtle"),
+        Animals(type: "Ocean3", name: "Whale", desc: "Add later", imageFile: "whale")
+    ]
     
-    var desertAnimals: [Animals] = []
+    var desertAnimals: [Animals] = [
+        Animals(type: "Desert1", name: "Camel", desc: "Add later", imageFile: "camel"),
+        Animals(type: "Desert2", name: "Rattle Snake", desc: "Add later", imageFile: "rattlesnake"),
+        Animals(type: "Desertt3", name: "Fennec Fox", desc: "Add later", imageFile: "fennecfox")
+    ]
     
     var arcticAnimals: [Animals] = [
         Animals(type: "Artic1", name: "Artic Bear", desc: "Add later", imageFile: "articbear"),

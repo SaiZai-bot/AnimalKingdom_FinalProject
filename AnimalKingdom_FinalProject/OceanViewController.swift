@@ -7,21 +7,23 @@
 
 import UIKit
 
-class OceanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OceanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddOceanDelegate {
     
     
     @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var tableViewItem: UITableView!
     
-    var Ocean:[Animals] = [
-        Animals(type: "Ocean1", name: "Octopus", desc: "Add later", imageFile: "octopus"),
-        Animals(type: "Ocean2", name: "Turtle", desc: "Add later", imageFile: "turtle"),
-        Animals(type: "Ocean3", name: "Whale", desc: "Add later", imageFile: "whale")
-    ]
+    var Ocean:[Animals]{
+        get { AnimalData.shared.oceanAnimals }
+        set { AnimalData.shared.oceanAnimals = newValue }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableViewItem.delegate = self
+        tableViewItem.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -38,34 +40,46 @@ class OceanViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return cell
     }
-
-    @IBAction func btnAdd(_ sender: Any) {
-        let name = txtField.text ?? ""
-        if name.isEmpty { return }
-        
-        let newAnimal = Animals(
-            type: "Ocean",
-            name: name,
-            desc: "Add Later",
-            imageFile: "Add Later")
-        
-        Ocean.append(newAnimal)
-        tableViewItem.reloadData()
-        txtField.text = ""
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Ocean.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
+    func didAddAnimal(_ animal: Animals) {
+        Ocean.append(animal)
+        tableViewItem.reloadData()
+    }
+    
+    
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let vc = segue.destination as! OceanDescViewController
-        if let indexPath = self.tableViewItem.indexPathForSelectedRow{
-            let animal = Ocean[indexPath.row]
-            vc.sendItem = animal
+        if segue.identifier == "AddAnimalSegue" {
+            let addVC = segue.destination as! AddOceanTableViewController
+            addVC.delegate = self
+        } else if segue.identifier == "ShowOceanDescSegue" {
+            let descVC = segue.destination as! OceanDescViewController
+            if let indexPath = tableViewItem.indexPathForSelectedRow {
+                descVC.sendItem = Ocean[indexPath.row]
+                descVC.selectedIndex = indexPath.row
+                descVC.updateDelegate = self
+            }
         }
     }
-    
+}
 
+extension OceanViewController: UpdateOceanDelegate {
+    func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
+        Ocean[index] = updateAnimal
+        tableViewItem.reloadData()
+    }
 }

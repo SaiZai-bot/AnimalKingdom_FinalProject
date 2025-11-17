@@ -7,9 +7,11 @@
 
 import UIKit
 
-class DesertDescViewController: UIViewController {
+class DesertDescViewController: UIViewController, UpdateDesertDelegate {
     
     var sendItem:Animals?
+    var selectedIndex: Int?
+    weak var updateDelegate: UpdateDesertDelegate?
     
     @IBOutlet weak var animalImage: UIImageView!
     @IBOutlet weak var animalName: UILabel!
@@ -18,23 +20,46 @@ class DesertDescViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animalName.text = sendItem?.name
-        animalDesc.text = sendItem?.desc
-        animalType.text = sendItem?.type
-        animalImage.image = UIImage(named: (sendItem?.imageFile)!)
+        updateUI()
 
         // Do any additional setup after loading the view.
     }
     
+    func didUpdateAnimal(_ updatedAnimal: Animals, at index: Int) {
+        sendItem = updatedAnimal
+        updateUI()
+        
+        updateDelegate?.didUpdateAnimal(updatedAnimal, at: index)
+    }
+    
+    func updateUI(){
+        animalName.text = sendItem?.name
+        animalDesc.text = sendItem?.desc
+        animalType.text = sendItem?.type
+        if let imageName = sendItem?.imageFile {
+                animalImage.image = UIImage(named: imageName)
+            }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
 
-    /*
+    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "UpdateDesertSegue" {
+            let updateVC = segue.destination as! UpdateDesertTableViewController
+            updateVC.animalToEdit = sendItem
+            updateVC.indexToEdit = selectedIndex
+            updateVC.delegate = self
+        }
     }
-    */
 
 }
