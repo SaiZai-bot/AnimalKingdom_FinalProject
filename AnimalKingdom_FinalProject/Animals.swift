@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Animals: NSObject {
+class Animals: Codable {
     var type: String
     var name: String
     var desc: String

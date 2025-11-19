@@ -9,7 +9,6 @@ import UIKit
 
 class desertViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddDesertDelegate {
     
-    @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var tableViewItem: UITableView!
     
     var Desert:[Animals] {
@@ -43,13 +42,26 @@ class desertViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Desert.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let alert = UIAlertController(
+                title: "Delete Animal",
+                message: "Are you sure you want to delete this animal?",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                
+                self.Desert.remove(at: indexPath.row)
+                AnimalData.shared.saveDesert()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }))
+            present(alert, animated: true, completion: nil)
         }
     }
     
     func didAddAnimal(_ animal: Animals) {
         Desert.append(animal)
+        AnimalData.shared.saveDesert()
         tableViewItem.reloadData()
     }
 
@@ -78,6 +90,7 @@ class desertViewController: UIViewController, UITableViewDelegate, UITableViewDa
 extension desertViewController: UpdateDesertDelegate {
     func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
         Desert[index] = updateAnimal
+        AnimalData.shared.saveDesert()
         tableViewItem.reloadData()
     }
 }

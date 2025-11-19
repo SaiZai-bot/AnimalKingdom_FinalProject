@@ -10,7 +10,6 @@ import UIKit
 class OceanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddOceanDelegate {
     
     
-    @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var tableViewItem: UITableView!
     
     var Ocean:[Animals]{
@@ -45,13 +44,26 @@ class OceanViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Ocean.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let alert = UIAlertController(
+                title: "Delete Animal",
+                message: "Are you sure you want to delete this animal?",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                
+                self.Ocean.remove(at: indexPath.row)
+                AnimalData.shared.saveOcean()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }))
+            present(alert, animated: true, completion: nil)
         }
     }
     
     func didAddAnimal(_ animal: Animals) {
         Ocean.append(animal)
+        AnimalData.shared.saveOcean()
         tableViewItem.reloadData()
     }
     
@@ -80,6 +92,7 @@ class OceanViewController: UIViewController, UITableViewDelegate, UITableViewDat
 extension OceanViewController: UpdateOceanDelegate {
     func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
         Ocean[index] = updateAnimal
+        AnimalData.shared.saveOcean()
         tableViewItem.reloadData()
     }
 }

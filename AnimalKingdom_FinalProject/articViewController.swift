@@ -10,7 +10,6 @@ import UIKit
 class articViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddArticDelegate {
 
 
-    @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var tableViewItem: UITableView!
     
     var Artic:[Animals] {
@@ -43,14 +42,28 @@ class articViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Artic.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            let alert = UIAlertController(
+                title: "Delete Animal",
+                message: "Are you sure you want to delete this animal?",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                
+                self.Artic.remove(at: indexPath.row)
+                AnimalData.shared.saveArctic()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }))
+            present(alert, animated: true, completion: nil)
         }
     }
 
 
     func didAddAnimal(_ animal: Animals) {
         Artic.append(animal)
+        AnimalData.shared.saveArctic()
         tableViewItem.reloadData()
     }
 
@@ -77,6 +90,7 @@ class articViewController: UIViewController, UITableViewDelegate, UITableViewDat
 extension articViewController: UpdateArticDelegate {
     func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
         Artic[index] = updateAnimal
+        AnimalData.shared.saveArctic()
         tableViewItem.reloadData()
     }
 }

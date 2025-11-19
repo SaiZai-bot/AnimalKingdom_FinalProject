@@ -31,11 +31,28 @@ class AddArticTableViewController: UITableViewController {
     }
     
     @IBAction func btnAdd(_ sender: Any) {
-        let name = nametxtfield.text ?? ""
+        let trimname = nametxtfield.text ?? ""
+        let name = trimname.trimmingCharacters(in: .whitespacesAndNewlines)
         let descri = desctxtview.text ?? ""
         let type = typetxtfield.text ?? ""
         
         if name.isEmpty || descri.isEmpty || type.isEmpty { return }
+        
+        let existingNames = AnimalData.shared.arcticAnimals.map { $0.name.lowercased() }
+        if existingNames.contains(name.lowercased()){
+            let alert = UIAlertController(
+                title: "Duplicate Name",
+                message: "An animal with this name already exists.",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            
+            nametxtfield.text = ""
+            
+            return
+        }
         
         let newAnimal = Animals(
             type: type,

@@ -9,9 +9,7 @@ import UIKit
 
 class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddForestDelegate {
     
-    @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var TableViewItem: UITableView!
-    
     
     var Forest:[Animals] {
         get { AnimalData.shared.forestAnimals }
@@ -35,13 +33,27 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Forest.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            let alert = UIAlertController(
+                title: "Delete Animal",
+                message: "Are you sure you want to delete this animal?",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                
+                self.Forest.remove(at: indexPath.row)
+                AnimalData.shared.saveForest()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }))
+            present(alert, animated: true, completion: nil)
         }
     }
     
     func didAddAnimal(_ animal: Animals) {
         Forest.append(animal)
+        AnimalData.shared.saveForest()
         TableViewItem.reloadData()
     }
     
@@ -76,6 +88,7 @@ class ForestViewController: UIViewController, UITableViewDelegate, UITableViewDa
 extension ForestViewController: UpdateForestDelegate {
     func didUpdateAnimal(_ updateAnimal: Animals, at index: Int){
         Forest[index] = updateAnimal
+        AnimalData.shared.saveForest()
         TableViewItem.reloadData()
     }
 }

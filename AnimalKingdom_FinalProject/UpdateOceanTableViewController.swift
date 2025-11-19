@@ -39,6 +39,23 @@ class UpdateOceanTableViewController: UITableViewController {
     @IBAction func btnSave(_ sender: Any) {
         guard let index = indexToEdit else {return}
         
+        let newName = txtName.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        let otherAnimals = AnimalData.shared.oceanAnimals.enumerated().filter { $0.offset != index }
+        let nameList = otherAnimals.map{ $0.element.name.lowercased() }
+        
+        if nameList.contains(newName.lowercased()){
+            let alert = UIAlertController(
+                title: "Duplicate Name",
+                message: "Another animal already has this name.",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            txtName.text = ""
+            return
+        }
+        
         let updated = Animals (
             type: txtType.text ?? "",
             name: txtName.text ?? "",
