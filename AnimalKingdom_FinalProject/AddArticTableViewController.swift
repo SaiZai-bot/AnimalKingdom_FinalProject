@@ -7,6 +7,7 @@
 
 import UIKit
 
+//protocol definition that the add screen uses to tell another obeject that a new animal was created
 protocol AddArticDelegate: AnyObject {
     func didAddAnimal(_ animal: Animals)
 }
