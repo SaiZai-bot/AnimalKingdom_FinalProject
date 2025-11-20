@@ -3,4 +3,319 @@
    uuid = "458C276A-CE29-46F6-AF5E-E7F6940DEAC3"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "346484D1-41B1-48E1-A559-22F5AA78F15E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimalKingdom_FinalProject/AnimalData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "346484D1-41B1-48E1-A559-22F5AA78F15E - 92d70ee529a15327"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.AnimalData.() -&gt; AnimalKingdom_FinalProject.AnimalData.init() -&gt; AnimalKingdom_FinalProject.AnimalData"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/AnimalData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "3290">
+               </Location>
+               <Location
+                  uuid = "346484D1-41B1-48E1-A559-22F5AA78F15E - 92d70ee529a15327"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.AnimalData.() -&gt; AnimalKingdom_FinalProject.AnimalData.init() -&gt; AnimalKingdom_FinalProject.AnimalData"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/AnimalData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "2912">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A7CF900F-74D3-41D9-A347-CBA9CCCFB215"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimalKingdom_FinalProject/articViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "articViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimalKingdom_FinalProject/articDescViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "articDescViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - d5e965266e6b106"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.updateDelegate.getter : Swift.Optional&lt;AnimalKingdom_FinalProject.UpdateArticDelegate&gt;"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/articDescViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - ec42240c0228284f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.updateDelegate.setter : Swift.Optional&lt;AnimalKingdom_FinalProject.UpdateArticDelegate&gt;"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/articDescViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - cf074f464e9a3f58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.updateDelegate.modify : Swift.Optional&lt;AnimalKingdom_FinalProject.UpdateArticDelegate&gt;"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/articDescViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - f9672540f9426ef7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.updateDelegate.modify : Swift.Optional&lt;AnimalKingdom_FinalProject.UpdateArticDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - 39cd3f2be8ea3030"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; AnimalKingdom_FinalProject.articDescViewController"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/articDescViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "222">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - ca4a34c653751b7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AnimalKingdom_FinalProject.articDescViewController&gt;"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/articDescViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "179">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - f9672540f9426ef7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.updateDelegate.modify : Swift.Optional&lt;AnimalKingdom_FinalProject.UpdateArticDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - 39cd3f2be8ea3030"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; AnimalKingdom_FinalProject.articDescViewController"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/articDescViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "4DA3B088-3452-409D-9FA1-D67DB3B8AD0D - ca4a34c653751b7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.articDescViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AnimalKingdom_FinalProject.articDescViewController&gt;"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/articDescViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BAB92A2-7E2F-4257-9526-8D6851FC78EA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimalKingdom_FinalProject/AddForestTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "btnAdd(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4BAB92A2-7E2F-4257-9526-8D6851FC78EA - 571d70921a9523af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.AddForestTableViewController.btnAdd(Any) -&gt; ()"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/AddForestTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "201">
+               </Location>
+               <Location
+                  uuid = "4BAB92A2-7E2F-4257-9526-8D6851FC78EA - 571d70921a9523af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnimalKingdom_FinalProject.AddForestTableViewController.btnAdd(Any) -&gt; ()"
+                  moduleName = "AnimalKingdom_FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zaimonemiranda/Desktop/FEU%20Tech/3rd%20Year/1st%20Term/Finals/Mobile%20Application%20Development%202/AnimalKingdom_FinalProject_Documentation/AnimalKingdom_FinalProject/AddForestTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0E4F7C7-D760-4A39-A56E-6415092847CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimalKingdom_FinalProject/StorageManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C2246EE-05A1-4681-BDBD-E7E7FAD5A7F5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimalKingdom_FinalProject/articViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "tableView(_:commit:forRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BC3544C-37AA-4704-8922-902F58C822DF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimalKingdom_FinalProject/ForestViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

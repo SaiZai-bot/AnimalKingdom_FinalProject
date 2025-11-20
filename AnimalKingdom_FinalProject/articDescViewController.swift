@@ -7,46 +7,46 @@
 
 import UIKit
 
-//delcares the description view controller
-//adopts UpdateDelegate fro the update screen and forward ipdates back to the previous screen
+// Delcares the description view controller
+// Adopts UpdateDelegate fro the update screen and forward ipdates back to the previous screen
 class articDescViewController: UIViewController, UpdateArticDelegate {
     
-    //sendItem sends Animals object passed from the list
+    // sendItem sends Animals object passed from the list
     var sendItem:Animals?
     
-    //which index in the array is selected
+    // Which index in the array is selected
     var selectedIndex: Int?
     
-    //reference tot he controller that hosuld receive udpates callbacks
+    // Reference tot he controller that hosuld receive udpates callbacks
     weak var updateDelegate: UpdateArticDelegate?
 
-    //UI elemnts in the storay to show the animal's data
+    // UI elemnts in the storay to show the animal's data
     @IBOutlet weak var animalImage: UIImageView!
     @IBOutlet weak var animalName: UILabel!
     @IBOutlet weak var animalDesc: UILabel!
     @IBOutlet weak var animalType: UILabel!
     
-    //ensures UI is refreshed whenever the view is about to appear
+    // Ensures UI is refreshed whenever the view is about to appear
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
         // Do any additional setup after loading the view.
     }
     
-    //implementation fo UpdateDelegate sot his controller can receive updates from the update view
+    // Implementation fo UpdateDelegate sot his controller can receive updates from the update view
     func didUpdateAnimal(_ updatedAnimal: Animals, at index: Int) {
         
-        //updaate its lcoal sendItem
+        // Update its local sendItem
         sendItem = updatedAnimal
         
-        //refreshes the UI
+        // Refreshes the UI
         updateUI()
         
-        //forward the update ot updateDelegate so the list screen can update model & UI
+        // Forward the update ot updateDelegate so the list screen can update model & UI
         updateDelegate?.didUpdateAnimal(updatedAnimal, at: index)
     }
     
-    // sets labes and imafe from sendItem
+    // Sets labels and imafe from sendItem
     func updateUI(){
         animalName.text = sendItem?.name
         animalDesc.text = sendItem?.desc
@@ -56,7 +56,7 @@ class articDescViewController: UIViewController, UpdateArticDelegate {
             }
     }
     
-    //ensures UI is refreshes whenever the view is about to appear
+    // Ensures UI is refreshes whenever the view is about to appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
@@ -70,7 +70,7 @@ class articDescViewController: UIViewController, UpdateArticDelegate {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        // passes the current sendItem and selectedIndex so the update screen can edit them
+        // Passes the current sendItem and selectedIndex so the update screen can edit them
         if segue.identifier == "UpdateArticSegue" {
             let updateVC = segue.destination as! UpdateArticTableViewController
             updateVC.animalToEdit = sendItem

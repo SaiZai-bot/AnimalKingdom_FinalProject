@@ -7,24 +7,25 @@
 
 import UIKit
 
-//Let Animal Data act as a singleton
+// Manages and holds all animal data acting as a Singleton for global access
+// This ensures all view controllers work with the same and single source for the data
 class AnimalData {
     
-    //lets AnimalData be one globally shared instance for every view controller to use
+    // Lets AnimalData be one globally shared instance for every view controller to use
     static let shared = AnimalData()
     
-    //preventing others from creating more instances and forces the use of AnimalData.shared
+    // Preventing others from creating more instances and forces the use of AnimalData.shared
     private init(){
         loadData()
     }
     
-    //declares keys for each biome to know where to save the animals in UserDefaults
+    // Declares keys for each biome to know where to save the animals in UserDefaults
     private let forestKey = "forest_animals"
     private let oceanKey = "ocean_animals"
     private let desertKey = "desert_animals"
     private let arcticKey = "arctic_animals"
     
-    //Create dummy animals for each biome
+    // Create dummy animals for each biome
     private let defaultForest = [
         Animals(type: "Forest1", name: "Bear", desc: "Add later", imageFile: "bear"),
         Animals(type: "Forest2", name: "Fox", desc: "Add later", imageFile: "fox"),
@@ -49,15 +50,15 @@ class AnimalData {
         Animals(type: "Arctic3", name: "Walrus", desc: "Add later", imageFile: "walrus")
     ]
 
-    //creation of dynamic arrays for each biome
+    // Creation of dynamic arrays for each biome
     var forestAnimals: [Animals] = []
     var oceanAnimals: [Animals] = []
     var desertAnimals: [Animals] = []
     var arcticAnimals: [Animals] = []
 
 
-    //loads animals from persistent storage using the StorageManager
-    // if the forestAnimals is empty output the default arrays
+    // Loads animals from persistent storage using the StorageManager (UserDefaults)
+    // If the animals is empty they output the default arrays
     func loadData() {
         forestAnimals = StorageManager.shared.loadAnimals(key: forestKey)
         if forestAnimals.isEmpty { forestAnimals = defaultForest }
@@ -72,7 +73,7 @@ class AnimalData {
         if arcticAnimals.isEmpty { arcticAnimals = defaultArctic }
     }
 
-    //each function saves the current animals array to storage using the biomes' key
+    // Each function saves the current animals array to storage using the biomes' key
     func saveForest() {
         StorageManager.shared.saveAnimals(forestAnimals, key: forestKey)
     }

@@ -7,18 +7,25 @@
 
 import UIKit
 
+// Protocol definition that the add screen uses to tell another obeject that a new animal was created
+// The corresponding `[BIOME]ViewController` (List Screen) conforms to this to receive the new model
 protocol AddForestDelegate: AnyObject {
+    
+    // Callback method invoked after a user saves a new animal
+    // - Parameter animal: The newly created `Animals` object
     func didAddAnimal(_ animal: Animals)
 }
 
 class AddForestTableViewController: UITableViewController {
 
+    // Reference to the delegate (the List screen) that will receive the new animal model
     weak var delegate: AddForestDelegate?
     
     @IBOutlet weak var nametxtfield: UITextField!
     @IBOutlet weak var desctxtview: UITextView!
     @IBOutlet weak var typetxtfield: UITextField!
     
+    // Called once when the view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -30,16 +37,24 @@ class AddForestTableViewController: UITableViewController {
 
     
     
+    // Handles the "Add" button tap to create and save a new animal
     @IBAction func btnAdd(_ sender: Any) {
         let trimname = nametxtfield.text ?? ""
         let name = trimname.trimmingCharacters(in: .whitespacesAndNewlines)
         let descri = desctxtview.text ?? ""
         let type = typetxtfield.text ?? ""
         
+        
+        // Input Validation: Check if any required field is empty
         if name.isEmpty || descri.isEmpty || type.isEmpty { return }
        
+        // Get a list of all existing Arctic animal names, converted to lowercase for case-sensitive check
         let existingNames = AnimalData.shared.forestAnimals.map { $0.name.lowercased() }
+        
+        // Check if the new name already exists in the list
         if existingNames.contains(name.lowercased()){
+            
+            // If duplicate is found, show an alert
             let alert = UIAlertController(
                 title: "Duplicate Name", 
                 message: "An animal with this name already exists.",
@@ -49,24 +64,29 @@ class AddForestTableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
             
+            // Clear the name field for the user to try again and stop execution
             nametxtfield.text = ""
             
             return
         }
         
+        // Create the new `Animals` object. Uses a default placeholder image for new entries
         let newAnimal = Animals(
             type: type,
             name: name,
             desc: descri,
             imageFile: "app_logo2")
         
+        // Notify the delegate (List screen) to add the new animal to the main array and save it
         delegate?.didAddAnimal(newAnimal)
+        
+        // Dismiss the current view controller and return to the List screen
         navigationController?.popViewController(animated: true)
         
         
     }
     
-    
+    // Clears all input fields (name, description, and type)
     @IBAction func btnClear(_ sender: Any) {
         nametxtfield.text = ""
         desctxtview.text = ""
